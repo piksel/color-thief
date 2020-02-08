@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const ColorThief = require(resolve(process.cwd(), "dist/color-thief.js"));
+const ColorThief = require(resolve(process.cwd(), "dist/node/colorthief-async.js"));
 const img = resolve(process.cwd(), 'cypress/test-pages/img/rainbow-vertical.png');
 const chai = require("chai");
 const expect = chai.expect;
@@ -14,11 +14,11 @@ describe('getColor()', function() {
 
 describe('getPalette()', function() {
     it('returns 5 colors when colorCount set to 5', function() {
-        return expect(ColorThief.getPalette(img, 5)).to.eventually.have.lengthOf(5);
+        return expect(ColorThief.getPalette(img, {colorCount: 5})).to.eventually.have.lengthOf(5);
     });
 
     it('returns 9 colors when colorCount set to 9', function() {
-        return expect(ColorThief.getPalette(img, 9)).to.eventually.have.lengthOf(9);
+        return expect(ColorThief.getPalette(img, {colorCount: 9})).to.eventually.have.lengthOf(9);
     });
 });
 

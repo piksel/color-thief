@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "outDir": "./build",
+        "allowJs": true,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "lib": [
+            "es2016",
+            "es2015",
+            "es5",
+            "dom"
+        ],
+        "target": "es2016",
+        "strictNullChecks": true,
+        "noImplicitAny": true
+    },
+    "include": [
+        "./src/*.ts"
+    ]
+}

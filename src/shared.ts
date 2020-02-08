@@ -1,4 +1,8 @@
-function createPixelArray(imgData, pixelCount, quality) {
+import {ColorRGB, ColorThiefOptions} from "./models";
+
+
+
+export const createPixelArray = (imgData: Uint8ClampedArray, pixelCount: number, quality: number) => {
     const pixels = imgData;
     const pixelArray = [];
 
@@ -17,10 +21,10 @@ function createPixelArray(imgData, pixelCount, quality) {
         }
     }
     return pixelArray;
-}
+};
 
-function validateOptions(options) {
-    let { colorCount, quality } = options;
+export const validateOptions = (options?: Partial<ColorThiefOptions>): ColorThiefOptions => {
+    let { colorCount, quality } = options || {};
 
     if (typeof colorCount === 'undefined' || !Number.isInteger(colorCount)) {
         colorCount = 10;
@@ -43,7 +47,18 @@ function validateOptions(options) {
     }
 }
 
-export default {
-    createPixelArray,
-    validateOptions
-};
+export const getPaletteFromImageData = (imageData: ImageData, quantize: any, options?: Partial<ColorThiefOptions>): ColorRGB[] | null => {
+    const {
+        colorCount,
+        quality
+    } = validateOptions(options);
+
+    const pixelCount = imageData.width * imageData.height;
+
+    const pixelArray = createPixelArray(imageData.data, pixelCount, quality);
+
+    // Send array to quantize function which clusters values
+    // using median cut algorithm
+    const cmap = quantize(pixelArray, colorCount);
+    return cmap ? cmap.palette() : null;
+}

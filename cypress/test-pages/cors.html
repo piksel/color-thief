@@ -13,14 +13,12 @@
     <div id="result"></div>
 
     <script type="module">
-        import ColorThief from '../../dist/color-thief.mjs';
-
-        const colorThief = new ColorThief();
+        import { getColor } from '../../dist/dom/colorthief-async.mjs';
 
         const img = document.querySelector('img');
 
-        function getColorFromImage(img) {
-            const result = colorThief.getColor(img);
+        async function getColorFromImage(img) {
+            const result = await getColor(img);
             document.querySelector('#result').innerText = result;
         }
 

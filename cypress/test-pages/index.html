@@ -34,8 +34,8 @@
     </script>
 
     <script id="palette-tpl" type="text/x-mustache">
-        <div class="palette" data-count="{{count}}">
-            <h3>getPalette(img, {{count}})</h3>
+        <div class="palette" data-count="{{colorCount}}">
+            <h3>getPalette(img, {{colorCount}})</h3>
             <div class="swatches">
                 {{#palette}}
                     <div class="swatch" style="background-color: rgb({{0}}, {{1}}, {{2}})"></div>
@@ -49,7 +49,7 @@
     </script>
 
 
-    <script src="/dist/color-thief.umd.js"></script>
+    <script src="/dist/dom/colorthief-async.umd.js"></script>
     <script src="/node_modules/mustache/mustache.js"></script>
     <script src="index.js"></script>
 
