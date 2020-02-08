@@ -1,9 +1,14 @@
 
-# Color Thief
+# Color Thief (Async)
 
-Grab the color palette from an image using just Javascript.Works in the browser and in Node.
+Grab the color palette from an image using just Javascript.
+Works in the browser and in Node.
 
-### View the [demo page](https://lokeshdhakar.com/projects/color-thief/) for examples, API docs, and more. 
+Unofficial fork of [lokesh/color-thief](https://github.com/lokesh/color-thief) using promise based functions.
+
+## Documentation and examples have not yet been updated
+
+### View the [original demo page](https://lokeshdhakar.com/projects/color-thief/) for examples, API docs, and more. 
 
 ---
 
@@ -15,9 +20,9 @@ Grab the color palette from an image using just Javascript.Works in the browser 
 + `cypress/` - Browsers tests.
 + `dist/` - Generated distribution files created by [microbundle](https://github.com/developit/microbundle) package and a couple of files copied via build script. 
 + `examples/` - CSS, JS, and Images for the index.html example page.
-+ `src/color-thief-node.js` - Source for the Node (commonjs) compatible version of the script.
-+ `src/color-thief.js` - Source for the browser (ES6, AMD, Global var) compatible version of the script.
-+ `src/core.js` - Functions shared between the node and browser versions of the script.
++ `src/color-thief.node.ts` - Source for the Node (commonjs) compatible version of the script.
++ `src/color-thief.dom.ts` - Source for the browser (ES6, AMD, Global var) compatible version of the script.
++ `src/shared.ts` - Functions shared between the node and browser versions of the script.
 + `test/` - Node integration tests. Uses Chai.
 + `index.html` - Example page.
 
